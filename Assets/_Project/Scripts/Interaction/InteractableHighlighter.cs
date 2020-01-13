@@ -7,6 +7,9 @@ public class InteractableHighlighter : MonoBehaviour
     [SerializeField] private Camera mainCam;
     [SerializeField] private float interactLength = 5;
 
+    [SerializeField] private GameObject interactPrompt;
+
+
     private InteractableVisual currentInteractableVisual = null;
 
     void Update()
@@ -40,6 +43,8 @@ public class InteractableHighlighter : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && currentInteractableVisual != null)
             ((Interactable)currentInteractableVisual).Interact();
+
+        interactPrompt.SetActive(currentInteractableVisual != null);
     }
 
 }
